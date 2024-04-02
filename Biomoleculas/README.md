@@ -8,7 +8,7 @@ Propongo utilizar un string con la secuencia de los aminoácidos, en su nomencla
 
 >🧗🏻‍♀️ DESAFÍO III: ¿ En qué tipo de datos podrías expresar la información de la estructura terciaria proteica?
 
-
+Una Lista de tuplas donde cada elemento de las lista contara con: nombre del aminoácido y sus preferencias de α-hélice, beta hoja plegada y loop).
 
 >🧗🏻‍♀️DESAFÍO IV: Rosalind Franklin es una científica muy relevante, que tuvo menos reconocimiento del merecido. ¿Cuáles fueron sus contribuciones en este campo? ¿Qué nos cuenta su historia acerca del mundo de la ciencia?
 
