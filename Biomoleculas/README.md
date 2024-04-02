@@ -19,3 +19,4 @@ El mundo de la ciencia aun en su busqueda colectiva por el conocimiento es empa�
 
 >PARA PENSAR: ¿Cuántas proteínas puede sintetizar un organismo? ¿De qué depende la cantidad y la característica de las proteínas que puede sintetizar un organismo? 🤔
 
+La información genética contenida en el ADN codifican las instrucciones para producir proteínas específicas. El número y la diversidad de genes en el genoma de un organismo influyen en la variedad de proteínas que puede sintetizar.
