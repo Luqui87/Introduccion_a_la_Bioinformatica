@@ -52,7 +52,7 @@ TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C              
 
 codigo = [["PHE","UUU","UUC"],
           ["LEU","UUA","UUG","CUU","CUC","CUA","CUG"],
-          ["ISO","AUU","AUC","AUA"],
+          ["ILE","AUU","AUC","AUA"],
           ["MET","AUG"],
           ["VAL", "GUU", "GUC","GUA","GUG"],
           ["SER","UCU", "UCC", "UCA", "UCG"],
@@ -68,7 +68,7 @@ codigo = [["PHE","UUU","UUC"],
           ["ASP","GAU","GAC"],
           ["GLU","GAA","GAG"],
           ["CYS", "UGU","UGC"],
-          ["TRY", "UGG"],
+          ["TRP", "UGG"],
           ["ARG","CGU", "CGC","CGA","CGG","AGA","AGG"],
           ["SER","AGU","AGC,"],
           ["GLY","GGU","GGC","GGA","GGG"]]
@@ -115,6 +115,9 @@ for i in range (0,10):
     
     if (answerIsCorrect(respuesta, i)):
         clearBoard()
+    elif (answerIsCorrect(respuesta, i) and i == 9):
+        print("CONGRATULATIONS")
+        break
     else:
         print("TRY AGAIN")
         break
