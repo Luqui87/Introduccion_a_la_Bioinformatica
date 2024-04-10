@@ -122,13 +122,3 @@ for i in range (0,10):
         print("TRY AGAIN")
         break
     
-
-# respuesta = input(secuence(cadena))
-
-# if (respuesta.upper() != cadena[0][0] ):
-#     print ("TRY AGAIN")
-# else:
-
-#   clearBoard()
-#   cadena[1] = (codigo[1][0], codigo[1][1])
-#   input(secuence(cadena))
