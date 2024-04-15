@@ -1,6 +1,16 @@
 import time
 import sys
 import random
+import subprocess
+from tabulate import tabulate
+import time
+import argparse
+
+parser = argparse.ArgumentParser(description='Traduce la cadena de ADN de un aminoácido a la vez. (Es necesario instalar pip)')
+
+subprocess.check_call(["pip","install","tabulate"])
+
+
 
 input(r"""
                           TTTTT     CCCCC                          TTTTT     CCCCC                          TTTTT     CCCCC                          TTTTT     CCCCC                        
@@ -50,30 +60,31 @@ TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C              
       
 """)
 
-codigo = [["PHE","UUU","UUC"],
-          ["LEU","UUA","UUG","CUU","CUC","CUA","CUG"],
-          ["ILE","AUU","AUC","AUA"],
-          ["MET","AUG"],
-          ["VAL", "GUU", "GUC","GUA","GUG"],
-          ["SER","UCU", "UCC", "UCA", "UCG"],
-          ["PRO","CUU", "CCC", "CCA", "CCG"],
-          ["THR","ACU", "ACC", "ACA", "ACG"],
-          ["ALA", "GCU", "GCC","GCA", "GCG"],
-          ["TYR", "UAU", "UAC"],
-          ["STOP","UAA","UAG","UGA"],
-          ["HIS", "CAU", "CAC"],
+codigo = [["PHE","TTT","TTC"],
+          ["LET","TTA","TTG","CTT","CTC","CTA","CTG"],
+          ["ILE","ATT","ATC","ATA"],
+          ["MET","ATG"],
+          ["VAL", "GTT", "GTC","GTA","GTG"],
+          ["SER","TCT", "TCC", "TCA", "TCG"],
+          ["PRO","CTT", "CCC", "CCA", "CCG"],
+          ["THR","ACT", "ACC", "ACA", "ACG"],
+          ["ALA", "GCT", "GCC","GCA", "GCG"],
+          ["TYR", "TAT", "TAC"],
+          ["STOP","TAA","TAG","TGA"],
+          ["HIS", "CAT", "CAC"],
           ["GLN", "CAA", "CAG"],
-          ["ASN", "AAU","ACC"],
+          ["ASN", "AAT","ACC"],
           ["LYS","AAA","AAG"],
-          ["ASP","GAU","GAC"],
+          ["ASP","GAT","GAC"],
           ["GLU","GAA","GAG"],
-          ["CYS", "UGU","UGC"],
-          ["TRP", "UGG"],
-          ["ARG","CGU", "CGC","CGA","CGG","AGA","AGG"],
-          ["SER","AGU","AGC,"],
-          ["GLY","GGU","GGC","GGA","GGG"]]
+          ["CYS", "TGT","TGC"],
+          ["TRP", "TGG"],
+          ["ARG","CGT", "CGC","CGA","CGG","AGA","AGG"],
+          ["SER","AGT","AGC,"],
+          ["GLY","GGT","GGC","GGA","GGG"]]
 
-cadena = [("Not", "OoO") , ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO")]
+times = [ ]
+head = ["Usuario","Tiempo"]
 
 def secuence(cadena):
     secuence =(f"""
@@ -86,6 +97,13 @@ def secuence(cadena):
     
     return secuence
 
+def addAmino(index, cadena):
+    amino = random.randint(0, 21)
+    nomenclatura = random.randint(1, len( codigo[amino]) -1 )
+    cadena[index] = (codigo[amino][0], codigo[amino][nomenclatura])
+    return cadena
+
+
 def clearBoard():
     LINE_UP = '\033[1A'
     LINE_CLEAR = '\x1b[2K'
@@ -96,29 +114,52 @@ def clearBoard():
         print(LINE_UP, end=LINE_CLEAR)
         
 
-def answerIsCorrect(answer, cantAminos):
-    aminos = cadena[0][0]
-    for i in range(1, cantAminos + 1):
-        aminos = aminos + ("-" + cadena[i][0])
-    return answer.upper() == aminos
+def answerIsCorrect(answer, cantAminos, cadena):
+    # aminos = cadena[0][0]
+    # for i in range(1, cantAminos + 1):
+    #     aminos = aminos + ("-" + cadena[i][0])
+    # return answer.upper() == aminos
+    return answer.upper() == cadena[cantAminos][0]
+    
+
+    
+def win(time, rounds):
+    user = input("Ingrese nombre: ")
+    times.insert(0, (user, round(time,2)))
+    times.sort(key=lambda x: x[1])
+    print(tabulate(times, headers=head, tablefmt="grid"))
+    replay = input("Jugar de nuevo? (Y-N): ")
+    if (replay.upper() == "Y"):
+        playGame(rounds)
+
+
+
+def playGame(rounds):
+    cadena = [("Not", "OoO") , ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO"), ("Not", "OoO")]
+
+    start = time.time()
+
+    for i in range (0,rounds):
+        cadena = addAmino(i, cadena)
+
+        respuesta = input(secuence(cadena))
+
+        clearBoard()
+
+        if (answerIsCorrect(respuesta, i, cadena) and i == (rounds - 1)):
+            end = time.time() - start
+            win(end, rounds)
+            break
+        else:
+            replay = input("ERROR!, jugar de nuevo? (Y-N):")
+            if (replay.upper() == "Y"):
+                playGame(rounds)
+                break
         
 
-    
+        
 
-for i in range (0,10):
-    amino = random.randint(0, 21)
-    nomenclatura = random.randint(1, len( codigo[amino]) -1 )
-    cadena[i] = (codigo[amino][0], codigo[amino][nomenclatura])
 
-    respuesta = input(secuence(cadena))
 
-    
-    if (answerIsCorrect(respuesta, i)):
-        clearBoard()
-    elif (answerIsCorrect(respuesta, i) and i == 9):
-        print("CONGRATULATIONS")
-        break
-    else:
-        print("TRY AGAIN")
-        break
-    
+playGame(10)
+

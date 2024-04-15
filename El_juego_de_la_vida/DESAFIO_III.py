@@ -21,7 +21,15 @@ args = parser.parse_args()
 file = open(args.file , "r")
 secuence = file.readline()
 
-matches = re.findall(r'TATAA(.+?)TATAA',secuence)
-
+matches = []
+start_index = secuence.find("TATAA")
+ 
+while start_index != -1 :
+    end_index = secuence.find("TATAA", start_index + 5)
+    if end_index != -1:
+        matches.append(secuence [start_index + 5 : end_index])
+        start_index = end_index
+    else:
+        break
 
 print(matches)
