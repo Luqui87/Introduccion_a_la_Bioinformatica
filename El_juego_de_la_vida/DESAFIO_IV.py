@@ -6,7 +6,7 @@ from tabulate import tabulate
 import time
 import argparse
 
-parser = argparse.ArgumentParser(description='Traduce la cadena de ADN de un aminoácido a la vez. (Es necesario instalar pip)')
+parser = argparse.ArgumentParser(description='Traduce la cadena de ADN de un aminoácido a la vez, con su abreviatura de 3 letras. (Es necesario instalar pip)')
 
 subprocess.check_call(["pip","install","tabulate"])
 
@@ -35,7 +35,7 @@ TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C              
                                                             |____/|_____|____/_/   \_\_|   |___\___/  |___|  \_/   
       
       
-                                                                        TRADUCE LA CADENA PROTEICA
+                                                            TRADUCE LA CADENA PROTEICA CON SU ABREVIATURA DE 3 LETRAS
 
         
                                                         |  _ \|  _ \| ____/ ___/ ___|  | ____| \ | |_   _| ____|  _ \ 
