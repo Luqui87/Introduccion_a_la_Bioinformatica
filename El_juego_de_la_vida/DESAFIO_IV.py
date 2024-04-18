@@ -6,7 +6,7 @@ from tabulate import tabulate
 import time
 import argparse
 
-parser = argparse.ArgumentParser(description='Traducí la cadena de ADN de un codón a la vez, con la abreviatura de 3 letras del aminoácido. (Es necesario instalar pip)')
+parser = argparse.ArgumentParser(description='Traducí la cadena de ADN de un codón a la vez, con la abreviatura de 3 letras del aminoácido. (Es necesario instalar pip: $ sudo apt install python3-pip)')
 parser.add_argument('-e', '--easyMode',
                     type=str,
                     help='Mostar tabla de aminoácidos (-e y)')
