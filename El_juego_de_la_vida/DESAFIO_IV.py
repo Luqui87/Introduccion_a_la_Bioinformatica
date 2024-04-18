@@ -6,7 +6,17 @@ from tabulate import tabulate
 import time
 import argparse
 
-parser = argparse.ArgumentParser(description='Traduce la cadena de ADN de un aminoácido a la vez, con su abreviatura de 3 letras. (Es necesario instalar pip)')
+parser = argparse.ArgumentParser(description='Traducí la cadena de ADN de un codón a la vez, con la abreviatura de 3 letras del aminoácido. (Es necesario instalar pip)')
+parser.add_argument('-e', '--easyMode',
+                    type=str,
+                    help='Mostar tabla de aminoácidos (-e y)')
+
+parser.add_argument('-r', '--rounds',
+                    type=int,
+                    help='Rondas de aminoácidos que habra que traducir',
+                    default=10)
+
+args = parser.parse_args()
 
 subprocess.check_call(["pip","install","tabulate"])
 
@@ -28,16 +38,22 @@ TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C              
  
 
 
-                                                            ____  _____ ____    _    _____ ___ ___    _____     __
+                                                            ____  _____ ____    _    _____ ___ ___    _____      __
                                                             |  _ \| ____/ ___|  / \  |  ___|_ _/ _ \  |_ _\ \   / /
                                                             | | | |  _| \___ \ / _ \ | |_   | | | | |  | | \ \ / / 
                                                             | |_| | |___ ___) / ___ \|  _|  | | |_| |  | |  \ V /  
                                                             |____/|_____|____/_/   \_\_|   |___\___/  |___|  \_/   
       
       
-                                                            TRADUCE LA CADENA PROTEICA CON SU ABREVIATURA DE 3 LETRAS
+                                                            TRADUCE LA CADENA PROTEICA DE UN CODON A LA VEZ. Ej:
+                                                                          
+                                                                                A       
+                                                                                | T   
+                                                                                | | G = MET
+                                                                                | o   
+                                                                                o      
 
-        
+                                                        _____ _____ _______ ____ ____  ______ _____ _____ _____ ____       
                                                         |  _ \|  _ \| ____/ ___/ ___|  | ____| \ | |_   _| ____|  _ \ 
                                                         | |_) | |_) |  _| \___ \___ \  |  _| |  \| | | | |  _| | |_) |
                                                         |  __/|  _ <| |___ ___) |__) | | |___| |\  | | | | |___|  _ < 
@@ -70,7 +86,7 @@ codigo = [["PHE","TTT","TTC"],
           ["THR","ACT", "ACC", "ACA", "ACG"],
           ["ALA", "GCT", "GCC","GCA", "GCG"],
           ["TYR", "TAT", "TAC"],
-          ["STOP","TAA","TAG","TGA"],
+          #["STOP","TAA","TAG","TGA"],
           ["HIS", "CAT", "CAC"],
           ["GLN", "CAA", "CAG"],
           ["ASN", "AAT","ACC"],
@@ -80,7 +96,7 @@ codigo = [["PHE","TTT","TTC"],
           ["CYS", "TGT","TGC"],
           ["TRP", "TGG"],
           ["ARG","CGT", "CGC","CGA","CGG","AGA","AGG"],
-          ["SER","AGT","AGC,"],
+          ["SER","AGT","AGC"],
           ["GLY","GGT","GGC","GGA","GGG"]]
 
 times = [ ]
@@ -118,7 +134,7 @@ def answerIsCorrect(answer, cantAminos, cadena):
     # aminos = cadena[0][0]
     # for i in range(1, cantAminos + 1):
     #     aminos = aminos + ("-" + cadena[i][0])
-    # return answer.upper() == aminos
+    # return answer.upper() == aminos MODO DE JUEGO DIFICIL
     return answer.upper() == cadena[cantAminos][0]
     
 
@@ -146,20 +162,18 @@ def playGame(rounds):
 
         clearBoard()
 
-        if (answerIsCorrect(respuesta, i, cadena) and i == (rounds - 1)):
+        if (answerIsCorrect(respuesta, i, cadena) and i == rounds -1):
             end = time.time() - start
             win(end, rounds)
             break
-        else:
+        elif (not answerIsCorrect(respuesta, i, cadena)):
             replay = input("ERROR!, jugar de nuevo? (Y-N):")
             if (replay.upper() == "Y"):
                 playGame(rounds)
                 break
+            break
         
-
-        
-
-
-
-playGame(10)
+if (args.easyMode == "y"):
+    print(tabulate(codigo, tablefmt="grid"))
+playGame(args.rounds)
 
