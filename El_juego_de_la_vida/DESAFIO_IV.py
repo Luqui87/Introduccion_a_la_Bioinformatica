@@ -13,7 +13,7 @@ parser.add_argument('-e', '--easyMode',
 
 parser.add_argument('-r', '--rounds',
                     type=int,
-                    help='Rondas de aminoácidos que habra que traducir',
+                    help='Rondas de aminoácidos que habra que traducir. Maximo 10 rondas',
                     default=10)
 
 args = parser.parse_args()
@@ -67,7 +67,8 @@ CC                      TT: : :TT CC| | |CC                      TT : : TT CC | 
 | | |C              T : : : : C     T | | | | C              T: : : : :C     T| | | | |C              T : : : : C     T | | | | C              T: : : : :C     T| | | | |C              T : 
 | | | C            T: : : : :C       T| | | | |C            T : : : : C       T | | | | C            T: : : : :C       T| | | | |C            T : : : : C       T | | | | C            T: : 
 | | | |C         TT : : : :CC         T | | | | C         TT: : : : CC         T| | | | |C         TT : : : :CC         T | | | | C         TT: : : : CC         T| | | | |C         TT : : 
-| | | | C       T : : : : C            T| | | | |C       T: : : : :C            T | | | | C       T : : : : C            T| | | | |C       T: : : : :C            T | | | | C       T : : : 
+| | | | C       T : : : : C            T| | | | |C       T: : : : :C            T
+       | | | | C       T : : : : C            T| | | | |C       T: : : : :C            T | | | | C       T : : : 
 | | | | |C     T: : : : :C              T | | | | C     T : : : : C              T| | | | |C     T: : : : :C              T | | | | C     T : : : : C              T| | | | |C     T: : : : 
 TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C                TT| | | | CC  T : : : : C                TT | | | |CC  T: : : : :C                TT| | | | CC  T : : : : 
   T | | | | CT: : : : CC                   T| | | | |CT : : : :CC                   T | | | | CT: : : : CC                   T| | | | |CT : : : :CC                   T | | | | CT: : : : C 
@@ -175,5 +176,10 @@ def playGame(rounds):
         
 if (args.easyMode == "y"):
     print(tabulate(codigo, tablefmt="grid"))
-playGame(args.rounds)
+
+if (0 < args.rounds <= 10):
+    playGame(args.rounds)
+else:
+    playGame(10)
+
 
