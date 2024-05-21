@@ -18,7 +18,7 @@ Interpreten los resultados obtenidos, mediante la visualización de los árboles
 >
 
 Refiere al modelo que usara para calcular la sustitución de un aminoácido por otro.
-
+```
 +----------------------------------------------------------Mosca
 |
 |          +**Humano
@@ -34,7 +34,7 @@ Refiere al modelo que usara para calcular la sustitución de un aminoácido por 
 |                 +--Perro
 |
 +**Bartmosca
-
+```
 
 El bootsrapping es la creación de datos similares randomizados para obtener una mejor estimación. Mientras mas datos nuestro arbol tenga puede infererir mejor su esquema.
 Para interpretar el árbol es necesario rootear el arbol con la especie mas alejada al grupo de interes. Se hace para lograr una mejor interpretación del árbol.
