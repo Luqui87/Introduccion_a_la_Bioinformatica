@@ -85,4 +85,4 @@ Se encuentran cerca de 500 secuencias familiares.
 >
 >🧗🏻‍♀️DESAFIO X:  Realizá una nueva corrida del BLASTp, utilizando la misma secuencia , pero ahora contra la base de datos PDB.  ¿Se obtienen los mismos resultados? ¿Qué tipo de resultados(hits) se recuperan? ¿Cuándo nos podría ser útil este modo de corrida?
 
-Hay una mucho menor cantidad de resultados. Cuando queremos buscar datos mas fiables o mas específicos.
+Hay una mucho menor cantidad de resultados. Cuando sea requerido obtener la estructura terciaria de la proteína.
