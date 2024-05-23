@@ -80,7 +80,7 @@ Acyl-(acyl-carrier-protein)—UDP-N-acetylglucosamine O-acyltransferase
 >
 >**PARA PENSAR** 🤔: ¿Cuál es la función de la proteína? ¿A qué grupo taxonómico pertenece? A un nivel de significancia estadística adecuado ¿cuántas secuencias similares se encuentran? 
 
-Es una encima que cataliza una reacción química que es el primer paso de la biosintesis de lipidos A. the transfer of the R-3-hydroxyacyl chain from R-3-hydroxyacyl acyl carrier protein (ACP) to the glucosamine 3-OH group of UDP-GlcNAc. Pertenece al grupo taxonomico reiono.
+
 Se encuentran cerca de 500 secuencias familiares.
 >
 >🧗🏻‍♀️DESAFIO X:  Realizá una nueva corrida del BLASTp, utilizando la misma secuencia , pero ahora contra la base de datos PDB.  ¿Se obtienen los mismos resultados? ¿Qué tipo de resultados(hits) se recuperan? ¿Cuándo nos podría ser útil este modo de corrida?
