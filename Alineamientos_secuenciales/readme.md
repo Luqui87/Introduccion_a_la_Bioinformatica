@@ -79,7 +79,8 @@ Acyl-(acyl-carrier-protein)—UDP-N-acetylglucosamine O-acyltransferase
 
 >
 >**PARA PENSAR** 🤔: ¿Cuál es la función de la proteína? ¿A qué grupo taxonómico pertenece? A un nivel de significancia estadística adecuado ¿cuántas secuencias similares se encuentran? 
-
+Es una encima que cataliza una reacción química que es el primer paso de la biosintesis de lipidos A. La mayoría de E. coli son inofensivas y desempeñan un papel esencial a la hora de mantener un sistema digestivo sano, ayudar a digerir los alimentos y producir vitamina K. Pertenece al dominio de las bacterias. 
+Se encuentran cerca de 500 secuencias familiares con cerca 100% de identidad
 
 Se encuentran cerca de 500 secuencias familiares.
 >
