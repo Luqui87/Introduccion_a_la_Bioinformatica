@@ -54,3 +54,5 @@ Considero que tiene toda la información necesaria, aunque es la estructura de l
 >**PARA PENSAR** 🤔: Observamos que la información respeta cierta estructura interna. ¿Cuáles son los beneficios y las limitaciones de imponer una estructura para comunicar los resultados de un experimento? 
 
 Si bien dificulta en algunos aspectos a la lectura imponer una estructura, está facilita al procesamiento de los datos, software de modelado necesesita una estructura de datos para poder traducirlo en modelos.
+
+>🧗🏻‍♀️DESAFÍO I: Compará el sitio activo de ambos confórmeros (posición 837) así como también los tamaños de los pockets. ¿Qué observás?
