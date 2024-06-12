@@ -56,3 +56,16 @@ Considero que tiene toda la información necesaria, aunque es la estructura de l
 Si bien dificulta en algunos aspectos a la lectura imponer una estructura, está facilita al procesamiento de los datos, software de modelado necesesita una estructura de datos para poder traducirlo en modelos.
 
 >🧗🏻‍♀️DESAFÍO I: Compará el sitio activo de ambos confórmeros (posición 837) así como también los tamaños de los pockets. ¿Qué observás?
+
+Se nota que en ambas distintos aminoácidos conformán el sitio activo. En el confórmero activo se nota una cavidad contráida donde ocupa mas volúmen, en cambio, en la conformación inactiva se encuentra una cavidad mas longeva pero no de tanto de volúmen.
+
+>🧗🏻‍♀️DESAFÍO II: Investigá la proteína usando la base de datos [Uniprot](https://www.uniprot.org/) y anotá los sitios relevantes biológicamente
+
+> 🧗🏻‍♀️DESAFÍO III :Analizá la estructura PDB [2FVLB](https://www.cavidb.org/chains/62b9e24ad5e54dd8755ed134?q=2FVLB)) ¿Cuántas cavidades fueron predichas para dicha estructura? ¿Hay alguna cavidad drogable? ¿Coincide con algún sitio de relavancia biológica?
+
+Fueron predichas 17 cavidades para dicha estructura. La primera cavidad predicha es drogables, es decir, que se sabe o se prevé que se unirá con alta afinidad a un fármaco. 
+ 
+> 💡 Para investigar: Investigá en qué consiste el docking, en qué ideas basa su funcionamiento ¿Cómo podría aprovecharse este método para tratar esta patología?
+>
+El docking de proteínas es una técnica computacional utilizada en biología estructural para predecir la estructura tridimensional de un complejo proteína-proteína o proteína-ligando. Consiste en simular y predecir la posición y orientación óptimas de una proteína (o un ligando) en relación con otra proteína, con el fin de entender cómo interactúan entre sí y forman complejos estables. Se podría aprovechar con utilizando un farmaco que al interactuar con la proteína afecte su conformación así afectando su funcionamiento.
+
